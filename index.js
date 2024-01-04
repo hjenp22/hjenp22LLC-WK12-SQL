@@ -9,9 +9,13 @@ inquirer.createPromptModule(
             message: "Enter Employee Name"
         },
         {
-            type: "input",
+            type: "list",
             name: "name",
-            message: "Enter Employee Name"
+            message: "Enter Employee Name",
+            choices: ["Employee", "Manager"]
         },    
     ]
 )
+.then(employee => {
+    console.log(employee);
+})
