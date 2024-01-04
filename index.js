@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const db = require("./my");
+const db = require("./mysql");
 
 inquirer.createPromptModule(
     [
