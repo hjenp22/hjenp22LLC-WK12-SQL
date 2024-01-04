@@ -5,7 +5,7 @@ INSERT INTO department (id, name) VALUES
 (3, 'IT');
 
 --roles
-INSERT ROLE (id, title, salary, department_id) VALUES
+INSERT INTO ROLE (id, title, salary, department_id) VALUES
 (1, 'Sales Manager', 82000, 1),
 (2, 'Sales Representative', 62000, 1),
 (3, 'Marketing Manager', 85000, 2),

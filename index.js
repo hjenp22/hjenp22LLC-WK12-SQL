@@ -1,11 +1,10 @@
 const inquirer = require("inquirer");
 const db = require("./mysql");
 
-inquirer.createPromptModule(
-    [
+inquirer.prompt([
         {
             type: "input",
-            name: "name",
+            name: "employeeName",
             message: "Enter Employee Name"
         },
         {
@@ -14,8 +13,7 @@ inquirer.createPromptModule(
             message: "Enter Employee Name",
             choices: ["Employee", "Manager"]
         },    
-    ]
-)
+])
 .then(employee => {
     console.log(employee);
-})
+});

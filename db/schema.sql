@@ -1,8 +1,8 @@
-DROP DATABASE IF EXISTS employee_db;
+DROP DATABASE IF EXISTS company_db;
 
-CREATE DATABASE employee_db;
+CREATE DATABASE company_db;
 
-USE employee_db;
+USE company_db;
 
 --department TABLE
 CREATE TABLE department (
@@ -14,7 +14,7 @@ CREATE TABLE department (
 CREATE TABLE role (
     id INT PRIMARY KEY,
     title VARCHAR(30),
-    SALARY DECIMAL,
+    SALARY DECIMAL(10,2),
     department_id INT,
     FOREIGN KEY (department_id) REFERENCES department(id)
 );
@@ -27,5 +27,5 @@ CREATE TABLE employee (
     role_id INT,
     manager_id INT,
     FOREIGN KEY (role_id) REFERENCES role(id),
-    FOREIGN KEY (manager_id) REFERENCES employee
+    FOREIGN KEY (manager_id) REFERENCES employee(id)
 );
