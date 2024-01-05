@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const db = require("./mysql");
+const db = require("./Assets/config/mysql");
 
 inquirer.prompt([
         {
@@ -9,11 +9,12 @@ inquirer.prompt([
         },
         {
             type: "list",
-            name: "name",
-            message: "Enter Employee Name",
+            name: "type",
+            message: "Manager or Employee? ",
             choices: ["Employee", "Manager"]
         },    
 ])
 .then(employee => {
     console.log(employee);
+    db.query("INSERTINTO emmployees")
 });
