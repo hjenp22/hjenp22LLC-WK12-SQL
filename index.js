@@ -16,5 +16,5 @@ inquirer.prompt([
 ])
 .then(employee => {
     console.log(employee);
-    db.query("INSERTINTO emmployees")
+    db.query("INSERT INTO employee")
 });
