@@ -15,7 +15,7 @@ inquirer.prompt([
             choices: ["Employee", "Manager"]
         },
         {
-            type: "type",
+            type: "input",
             name: "manager_id",
             message: "Enter Manager's ID if applicable",
             when: (answers) => answers.type === "Employee"

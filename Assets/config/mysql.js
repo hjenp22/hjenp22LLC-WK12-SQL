@@ -14,7 +14,7 @@ const db = mysql.createConnection(
 
   db.connect((err) => {
     if (err) {
-      console.error('Error connecting tot he database:', errr);
+      console.error('Error connecting tot he database:', err);
       return;
     }
     console.log('Connected to the company_db database');
