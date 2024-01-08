@@ -1,4 +1,5 @@
-const mysql = require("mysql2");
+const { db, addEmployee } = require("./Assets/config/mysql");
+
 
 const db = mysql.createConnection(
     {

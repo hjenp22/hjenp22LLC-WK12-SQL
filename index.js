@@ -30,11 +30,11 @@ inquirer.prompt([
     addEmployee(employee);
 });
 
-.then(employee => {
-    console.log(employee);
-    db.query("INSERT INTO employee (first_name, last_name, manager_id) VALUES (?, ?);", [employee.name, employee.role == "Manager"], (err, result) => {
-        if (err) {
-            console.log(err);
-        } else {
-            console.log("Success!")
-        });
+// .then(employee => {
+//     console.log(employee);
+//     db.query("INSERT INTO employee (first_name, last_name, manager_id) VALUES (?, ?);", [employee.name, employee.role == "Manager"], (err, result) => {
+//         if (err) {
+//             console.log(err);
+//         } else {
+//             console.log("Success!")
+//         });
