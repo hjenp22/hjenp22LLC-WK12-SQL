@@ -1,5 +1,6 @@
 const inquirer = require("inquirer");
-const {addEmployee} = require("./Assets/config/mysql");
+const { addEmployee } = require("./Assets/config/mysql");
+
 
 inquirer.prompt([
         {
@@ -26,9 +27,19 @@ inquirer.prompt([
         },
         
 ])
-.then(employee => {
-    addEmployee(employee);
-});
+
+    .then(employee => {
+        console.log("Prompt answers:", employee);
+        addEmployee(employee);
+        console.log("After addEmployee"); // Add this line for logging
+    })
+    .catch(error => {
+        console.error("Error during inquirer prompt:", error);
+    });
+
+// .then(employee => {
+//     addEmployee(employee);
+// });
 
 // .then(employee => {
 //     console.log(employee);
