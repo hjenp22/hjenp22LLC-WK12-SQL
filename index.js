@@ -21,5 +21,4 @@ inquirer.prompt([
             console.log(err);
         } else {
             console.log("Success!")
-        }
-});
+        });
