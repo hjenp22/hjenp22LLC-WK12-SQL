@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const db = require("./Assets/config/mysql");
+const {addEmployee} = require("./Assets/config/mysql");
 
 inquirer.prompt([
         {

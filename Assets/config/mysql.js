@@ -1,4 +1,5 @@
-const { db, addEmployee } = require("./Assets/config/mysql");
+const mysql = require("mysql2");
+const { addEmployee } = require("./Assets/config/mysql");
 
 
 const db = mysql.createConnection(
@@ -13,4 +14,5 @@ const db = mysql.createConnection(
     console.log(`Connected to the company_db database.`)
   );
 
-module.exports = db;
+
+module.exports = { db, addEmployee };
