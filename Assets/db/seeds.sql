@@ -18,4 +18,4 @@ INSERT INTO employee(first_name, last_name) VALUES
 ('Halle', 'Rossi'),
 ('Anna Charlotte', 'Lavers'),
 ('Jen', 'Park'),
-('Julia', 'Syrek')
+('Julia', 'Syrek');
