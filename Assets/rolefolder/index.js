@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
-const {addRole, viewRoles} = require("./Assets/config.role");
+const {addRole, viewRoles} = require("../rolefolder/index.js");
 
-const db = require("./config/mysql")
+const db = require("./config/mysql.js")
 
 const mainMenu = () => {
     inquirer
