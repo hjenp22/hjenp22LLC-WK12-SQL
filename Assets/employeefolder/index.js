@@ -6,7 +6,7 @@ const {
     updateEmployeeManager,
     viewEmployeesByManager,
     viewEmployeesByDepartment,
-} = require("./Assets/config/mysql.js");
+} = require("../config/mysql");
 
 const mainMenu = () => {
     inquirer

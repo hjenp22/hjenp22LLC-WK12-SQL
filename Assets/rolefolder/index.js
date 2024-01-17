@@ -1,7 +1,7 @@
 const inquirer = require("inquirer");
 const {addRole, viewRoles} = require("../rolefolder/index.js");
 
-const db = require("./config/mysql.js")
+const db = require("../config/mysql.js")
 
 const mainMenu = () => {
     inquirer
@@ -42,4 +42,5 @@ const mainMenu = () => {
       
       // Start the main menu
       mainMenu();
+
       

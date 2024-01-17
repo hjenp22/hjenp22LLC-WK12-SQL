@@ -1,5 +1,5 @@
 const inquirer = require("inquirer");
-const { addDepartment, viewDepartments } = require("../departmentsfolder/index.js");
+const { addDepartment, viewDepartments } = require("../config/mysql
 
 
 const db = require("./config/mysql.js");

@@ -1,6 +1,7 @@
 const inquirer = require("inquirer");
 const { addEmployee } = require("./Assets/config/mysql");
 
+
 const promptEmployeeDetails = () => {
     return inquirer.prompt([
       {
@@ -106,6 +107,7 @@ const menu = () => {
       });
   };
   
+  menu();
 
 // inquirer.prompt([
 //         {
