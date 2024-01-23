@@ -1,8 +1,10 @@
 const inquirer = require("inquirer");
-const { addDepartment, viewDepartments } = require("../config/mysql
+const { addDepartment, viewDepartments } = require("../config/mysql");
 
 
-const db = require("./config/mysql.js");
+
+const db = require("../config/mysql.js");
+
 
 
 const mainMenu = () => {

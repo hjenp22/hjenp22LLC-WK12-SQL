@@ -30,6 +30,7 @@ JOIN department ON role.department_id = department.id;
 SELECT CONCAT(first_name, ' ', last_name) AS manager_name FROM employee;
 
 -- Select detailed employee information with manager details
+
 SELECT employee.id AS employee_id,
     employee.first_name,
     employee.last_name,
@@ -45,6 +46,7 @@ JOIN role ON employee.role_id = role.id
 JOIN department ON role.department_id = department.id
 LEFT JOIN employee AS manager ON employee.manager_id = manager.id OR employee.manager_id IS NULL;
 
+
 SELECT CONCAT(first_name, ' ', last_name) AS employees_name from employee;
 -- Update employee role
 UPDATE employee 
@@ -56,18 +58,21 @@ SET role_id = (
 )
 WHERE first_name = 'Brittney' AND last_name = 'Tong';
 
--- Update employee manager using JOIN
+-- Update employee manager by name
 UPDATE employee AS e1
-INNER JOIN employee AS e2 ON e1.manager_id = e2.id
+JOIN employee AS e2 ON e2.first_name = 'Allison' AND e2.last_name = 'Sousan'
 SET e1.manager_id = e2.id
-WHERE e1.first_name = 'Jeff' AND e1.last_name = 'Fab'
-AND e2.first_name = 'Sean' AND e2.last_name = 'Harrigan';
+WHERE e1.first_name = 'Brittney' AND e1.last_name = 'Tong';
+
+
 
 -- Select specific employee and manager details after update
+
 SELECT e1.*, e2.*
 FROM employee AS e1
 INNER JOIN employee AS e2 ON e1.manager_id = e2.id
 WHERE e1.first_name = 'Sean' AND e1.last_name = 'Harrigan' AND e2.first_name = 'Jeff' AND e2.last_name = 'Fab';
+
 
 -- Update employee manager by ID
 UPDATE employee SET manager_id = 2 WHERE first_name = 'Jaimie' AND last_name = 'Belle';
