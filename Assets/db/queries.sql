@@ -77,4 +77,3 @@ WHERE e1.first_name = 'Sean' AND e1.last_name = 'Harrigan' AND e2.first_name = '
 -- Update employee manager by ID
 UPDATE employee SET manager_id = 2 WHERE first_name = 'Jaimie' AND last_name = 'Belle';
 
-SHOW TABLE;
