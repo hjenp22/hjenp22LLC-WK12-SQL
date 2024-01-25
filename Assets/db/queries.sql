@@ -1,5 +1,5 @@
 USE company_db;
-
+--calling these queries using JS--
 -- Insert data into the employee table
 INSERT INTO employee (first_name, last_name) VALUES ('Brittney', 'Tong');
 
@@ -25,6 +25,7 @@ SELECT * FROM role;
 SELECT role.id, role.title, role.salary, department.id AS department_id, department.name AS department_name
 FROM role
 JOIN department ON role.department_id = department.id;
+
 
 -- Select manager names
 SELECT CONCAT(first_name, ' ', last_name) AS manager_name FROM employee;
