@@ -88,7 +88,7 @@ const menu = () => {
              addEmployee()
             break;
           case "updateEmployeeRole":
-            
+            updateEmployeeRole()
             break;
           default:
             process.exit()
@@ -216,4 +216,57 @@ function addEmployee() {
   });
 }
 
+function updateEmployeeRole() {
+  // Fetch employee names and roles from the database to provide choices
+  db.query("SELECT id, CONCAT(first_name, ' ', last_name) AS employee_name FROM employee", (err, employees) => {
+    if (err) {
+      console.error("Error fetching employees:", err);
+    } else {
+      const employeeChoices = employees.map((employee) => ({ name: employee.employee_name, value: employee.id }));
 
+      db.query("SELECT id, title FROM role", (err, roles) => {
+        if (err) {
+          console.error("Error fetching roles:", err);
+        } else {
+          const roleChoices = roles.map((role) => ({ name: role.title, value: role.id }));
+
+          // Prompt user for employee and new role selection
+          inquirer
+            .prompt([
+              {
+                type: "list",
+                name: "employee_id",
+                message: "Select the employee to update",
+                choices: employeeChoices,
+              },
+              {
+                type: "list",
+                name: "new_role_id",
+                message: "Select the new role for the employee",
+                choices: roleChoices,
+              },
+            ])
+            .then((answers) => {
+              // Update the employee's role in the database
+              db.query(
+                `UPDATE employee SET role_id = ? WHERE id = ?;`,
+                [answers.new_role_id, answers.employee_id],
+                (err, data) => {
+                  if (err) {
+                    console.error("Error updating employee role:", err);
+                  } else {
+                    console.log("Employee role has been updated");
+                  }
+                  // Display the menu again
+                  menu();
+                }
+              );
+            })
+            .catch((error) => {
+              console.error("Error during inquirer prompt:", error);
+            });
+        }
+      });
+    }
+  });
+}
