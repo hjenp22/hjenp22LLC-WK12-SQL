@@ -209,7 +209,7 @@ function addEmployee() {
         .then((employee) => {
           // Insert the employee details into the database
           db.query(
-            `INSERT INTO employee (name, type, manager_id, role_id) VALUES (?, ?, ?, ?);`,
+            `INSERT INTO employee (name, type, manager_id, role_id) VALUES ("${answers.addEmployee}");`,
             [employee.employeeName, employee.type, employee.manager_id, employee.role_id],
             (err, data) => {
               if (err) {
