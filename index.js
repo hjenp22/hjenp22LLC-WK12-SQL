@@ -155,7 +155,20 @@ function addRole(){
       menu();
     });
 }
-
+// Function to view all employees
+function viewEmployee() {
+  // Execute the query to fetch employee data
+  db.query("SELECT * FROM employee;", (err, employees) => {
+    if (err) {
+      console.error("Error fetching employees:", err);
+    } else {
+      // Display the employee data in a tabular format
+      console.table(employees);
+    }
+    // Display the menu again
+    menu();
+  });
+}
 
 function addEmployee() {
   // Fetch roles from the database to provide a list of choices

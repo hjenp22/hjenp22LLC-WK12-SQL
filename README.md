@@ -19,10 +19,15 @@ This week's assignment presented an exciting opportunity to craft a sophisticate
 
 
 ## Employee Tracker: "How To" Step by Step! <!--or application steps to each their own -->
-1. Start by opening the terminal
-2. In the command-line enter "npm install" to run node.js
-3. Then in the command-line enter 'note index.js' to get node to run!
-4. A list of options will then show within the terminal and you can scroll and pick which option you would like to go through. 
+1. First open up Assets folder
+2. Then go into db
+3. Run all SQL in schema.sql
+4. Run all SQL in seeds.sql
+5. Run all SQL in queries.sql
+6. Then open the terminal
+7. In the command-line enter "npm install" to run node.js
+8. Then in the command-line enter 'note index.js' to get node to run!
+9. A list of options will then show within the terminal and you can scroll and pick which option you would like to go through. 
 ### Walkthrough Video
 
 
