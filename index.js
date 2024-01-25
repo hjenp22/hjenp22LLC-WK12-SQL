@@ -184,8 +184,13 @@ function addEmployee() {
         .prompt([
           {
             type: "input",
-            name: "employeeName",
-            message: "Enter Employee Name",
+            name: "first_name",
+            message: "Enter Employee's First Name",
+          },
+          {
+            type: "input",
+            name: "last_name",
+            message: "Enter Employee's Last Name",
           },
           {
             type: "list",
@@ -209,8 +214,8 @@ function addEmployee() {
         .then((employee) => {
           // Insert the employee details into the database
           db.query(
-            `INSERT INTO employee (name, type, manager_id, role_id) VALUES ("${answers.addEmployee}");`,
-            [employee.employeeName, employee.type, employee.manager_id, employee.role_id],
+            `INSERT INTO employee (first_name, last_name) VALUES (?, ?);`,
+            [employee.first_name, employee.last_name],
             (err, data) => {
               if (err) {
                 console.error("Error adding employee:", err);
