@@ -4,7 +4,7 @@
 
 [![GitHub](https://img.shields.io/badge/GitHub-My_Profile-pink?style=for-the-badge&logo=github)](https://github.com/hjenp22?tab=repositories)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-My_Profile-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hjennip)
-# Homework-12 SQL: Employee Tracker
+# Employee Tracker
 </div>
 
 ## Description 
@@ -29,7 +29,7 @@ This week's assignment presented an exciting opportunity to craft a sophisticate
 8. Then in the command-line enter 'note index.js' to get node to run!
 9. A list of options will then show within the terminal and you can scroll and pick which option you would like to go through. 
 ### Walkthrough Video
-
+Walkthrough Video Link: [How-To](https://drive.google.com/file/d/1kw5qG11rBE-6fEnRThu57kBbYFg4yPKs/view)
 
 
 <!-- CONTRIBUTING -->
