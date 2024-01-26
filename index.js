@@ -175,11 +175,22 @@ function addEmployee() {
   db.query("SELECT id, title FROM role", (err, roles) => {
     if (err) {
       console.error("Error fetching roles:", err);
-    } else {
-      // Extract role titles from the fetched data to use as choices
-      const roleChoices = roles.map((role) => ({ name: role.title, value: role.id }));
+      return menu(); // Return to the menu if an error occurs
+    }
 
-      // Prompt user for employee details including role selection
+    // Extract role titlesfrom the fetched data to use as choices
+    const roleChoices = roles.map((role) => ({ name: role.title, value: role.id }));
+
+    // Fetch employees from the database to provide a list of choices for managers
+    db.query("SELECT id, CONCAT(first_name, ' ', last_name) AS manager_name FROM employee", (err, employees) => {
+      if (err) {
+        console.error("Error fetching managers:", err);
+        return menu(); // Return to the menu if an error occurs
+      }
+      // Extract employee names from the fetched data to use as choices for managers
+      const managerChoices = employees.map((employee) => ({ name: employee.manager_name, value: employee.id }));
+
+      // Prompt user for employee details including role and manager selection
       inquirer
         .prompt([
           {
@@ -194,28 +205,22 @@ function addEmployee() {
           },
           {
             type: "list",
-            name: "type",
-            message: "Manager or Employee? ",
-            choices: ["Employee", "Manager"],
-          },
-          {
-            type: "input",
-            name: "manager_id",
-            message: "Enter Manager's ID if applicable",
-            when: (answers) => answers.type === "Employee",
-          },
-          {
-            type: "list",
             name: "role_id",
             message: "Select the employee's role",
             choices: roleChoices,
+          },
+          {
+            type: "list",
+            name: "manager_id",
+            message: "Select the employee's manager",
+            choices: managerChoices,
           },
         ])
         .then((employee) => {
           // Insert the employee details into the database
           db.query(
-            `INSERT INTO employee (first_name, last_name) VALUES (?, ?);`,
-            [employee.first_name, employee.last_name],
+            `INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?);`,
+            [employee.first_name, employee.last_name, employee.role_id, employee.manager_id],
             (err, data) => {
               if (err) {
                 console.error("Error adding employee:", err);
@@ -229,10 +234,12 @@ function addEmployee() {
         })
         .catch((error) => {
           console.error("Error during inquirer prompt:", error);
+          menu(); // Return to the menu if an error occurs during the prompt
         });
-    }
+    });
   });
 }
+
 
 function updateEmployeeRole() {
   // Fetch employee names and roles from the database to provide choices
